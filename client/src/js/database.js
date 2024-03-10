@@ -1,7 +1,7 @@
 import { openDB } from "idb";
 
 const initdb = async () =>
-  // Creates a new database named 'kitties' which will be using version 1 of the database.
+  // Creates a new database named 'jate' which will be using version 1 of the database.
   openDB("jate", 1, {
     // Adds database schema if it has not already been initialized.
     upgrade(db) {
@@ -19,11 +19,11 @@ const initdb = async () =>
 export const putDb = async (content) => {
   console.log("Post to the database");
 
-  // Creates a connection to the kitties database and version.
-  const kittiesDb = await openDB("jate", 1);
+  // Creates a connection to the jatedatabase and version.
+  const jateDb = await openDB("jate", 1);
 
   // Creates a new transaction and specifies the database and data privileges.
-  const tx = kittiesDb.transaction("jate", "readwrite");
+  const tx = jateDb.transaction("jate", "readwrite");
 
   // Opens up the desired object store.
   const store = tx.objectStore("jate");
@@ -41,10 +41,10 @@ export const getDb = async () => {
   console.log("Get all notes from the database");
 
   // Creates a connection to the kitties database and version.
-  const kittiesDb = await openDB("jate", 1);
+  const jateDb = await openDB("jate", 1);
 
   // Creates a new transaction and specifies the database and data privileges.
-  const tx = kittiesDb.transaction("jate", "readonly");
+  const tx = jateDb.transaction("jate", "readonly");
 
   // Opens up the desired object store.
   const store = tx.objectStore("jate");
